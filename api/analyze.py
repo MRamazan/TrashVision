@@ -60,7 +60,7 @@ async def analyze(image: UploadFile = File(...), location: str = Form(...)):
     try:
         scout_resp = client.chat.completions.create(
             # Fixed: Groq uses this ID, not "meta-llama/llama-4-scout-17b-16e-instruct"
-            model="llama-4-scout-17b-16e-instruct",
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
             messages=[
                 {
                     "role": "user",
