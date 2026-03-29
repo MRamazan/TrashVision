@@ -1,15 +1,17 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+    { "src": "api/analyze.py", "use": "@vercel/python" },
+    { "src": "index.html",     "use": "@vercel/static"  }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+    { "src": "/api/(.*)", "dest": "/api/analyze.py" },
+    { "src": "/(.*)",     "dest": "/index.html"     }
+  ],
+  "functions": {
+    "api/analyze.py": {
+      "maxDuration": 60,
+      "memory": 512
     }
-  ]
+  }
 }
