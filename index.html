@@ -13,16 +13,17 @@
       --blue-50:  #eff6ff;
       --blue-100: #dbeafe;
       --blue-200: #bfdbfe;
+      --blue-300: #93c5fd;
       --blue-500: #3b82f6;
       --blue-600: #2563eb;
       --blue-700: #1d4ed8;
-      --blue-900: #1e3a8a;
       --slate-50:  #f8fafc;
       --slate-100: #f1f5f9;
       --slate-200: #e2e8f0;
       --slate-300: #cbd5e1;
       --slate-400: #94a3b8;
       --slate-500: #64748b;
+      --slate-600: #475569;
       --slate-700: #334155;
       --slate-900: #0f172a;
       --green-100: #dcfce7;
@@ -35,13 +36,12 @@
       --red-600:   #dc2626;
       --gray-100:  #f3f4f6;
       --gray-500:  #6b7280;
-      --radius-sm: 6px;
-      --radius:    10px;
-      --radius-lg: 16px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-      --shadow:    0 4px 16px rgba(0,0,0,.08);
-      --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
-      --transition: 180ms ease;
+      --r-sm: 6px;
+      --r:    10px;
+      --r-lg: 16px;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.07);
+      --sh:    0 4px 16px rgba(0,0,0,.08);
+      --t: 160ms ease;
     }
 
     body {
@@ -63,40 +63,24 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(8px);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .logo { display: flex; align-items: center; gap: 10px; }
 
     .logo-icon {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       background: var(--blue-600);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
 
     .logo-icon svg { width: 18px; height: 18px; fill: #fff; }
 
-    .logo-text {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--slate-900);
-      letter-spacing: -0.4px;
-    }
-
+    .logo-text { font-size: 17px; font-weight: 700; color: var(--slate-900); letter-spacing: -0.4px; }
     .logo-text span { color: var(--blue-600); }
 
     .header-badge {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11px; font-weight: 600;
       color: var(--blue-600);
       background: var(--blue-50);
       border: 1px solid var(--blue-200);
@@ -106,58 +90,35 @@
       text-transform: uppercase;
     }
 
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
+    main { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.6px;
-      color: var(--slate-900);
-      margin-bottom: 8px;
-    }
-
-    .hero p {
-      font-size: 15px;
-      color: var(--slate-500);
-      max-width: 440px;
-      margin: 0 auto;
-    }
+    .hero { text-align: center; margin-bottom: 36px; }
+    .hero h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.6px; margin-bottom: 8px; }
+    .hero p { font-size: 15px; color: var(--slate-500); max-width: 440px; margin: 0 auto; }
 
     .card {
       background: #fff;
       border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
+      border-radius: var(--r-lg);
       padding: 28px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--sh-sm);
     }
 
     .card + .card { margin-top: 16px; }
 
     .card-title {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: var(--slate-500);
-      margin-bottom: 16px;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.6px; text-transform: uppercase;
+      color: var(--slate-500); margin-bottom: 16px;
     }
 
     .upload-area {
       border: 2px dashed var(--slate-300);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       padding: 36px 24px;
       text-align: center;
       cursor: pointer;
-      transition: all var(--transition);
+      transition: all var(--t);
       position: relative;
       background: var(--slate-50);
     }
@@ -167,139 +128,69 @@
       background: var(--blue-50);
     }
 
-    .upload-area input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
+    .upload-area > input[type="file"] {
+      position: absolute; inset: 0; opacity: 0;
+      cursor: pointer; width: 100%; height: 100%;
     }
 
     .upload-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--blue-50);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 48px; height: 48px;
+      background: var(--blue-50); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
       margin: 0 auto 14px;
     }
 
     .upload-icon svg { width: 24px; height: 24px; stroke: var(--blue-600); fill: none; }
-
-    .upload-text {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--slate-700);
-      margin-bottom: 4px;
-    }
-
-    .upload-subtext {
-      font-size: 13px;
-      color: var(--slate-400);
-    }
+    .upload-text { font-size: 15px; font-weight: 500; color: var(--slate-700); margin-bottom: 4px; }
+    .upload-subtext { font-size: 13px; color: var(--slate-400); }
 
     .upload-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
+      display: flex; gap: 10px; margin-top: 16px;
       justify-content: center;
-      pointer-events: none;
     }
 
-    .upload-area:hover .upload-actions,
-    .upload-area.drag-over .upload-actions { pointer-events: auto; }
-
     .btn-camera {
-      pointer-events: all;
-      position: relative;
-      z-index: 2;
-      font-size: 13px;
-      font-weight: 500;
+      position: relative; z-index: 2;
+      font-size: 13px; font-weight: 500;
       color: var(--blue-600);
       background: var(--blue-50);
       border: 1px solid var(--blue-200);
-      border-radius: var(--radius-sm);
+      border-radius: var(--r-sm);
       padding: 7px 14px;
       cursor: pointer;
-      transition: all var(--transition);
+      transition: all var(--t);
       white-space: nowrap;
     }
 
-    .btn-camera:hover {
-      background: var(--blue-100);
-      border-color: var(--blue-300);
-    }
+    .btn-camera:hover { background: var(--blue-100); border-color: var(--blue-300); }
+    .btn-camera input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
 
-    .btn-camera input {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-    }
-
-    #preview-container {
-      display: none;
-      margin-top: 16px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--slate-200);
-      position: relative;
-    }
-
-    #preview-container img {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      display: block;
-    }
+    #preview-container { display: none; margin-top: 16px; border-radius: var(--r); overflow: hidden; border: 1px solid var(--slate-200); position: relative; }
+    #preview-container img { width: 100%; max-height: 280px; object-fit: cover; display: block; }
 
     .preview-remove {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 28px;
-      height: 28px;
-      background: rgba(0,0,0,.55);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background var(--transition);
+      position: absolute; top: 10px; right: 10px;
+      width: 28px; height: 28px;
+      background: rgba(0,0,0,.55); border: none; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background var(--t);
     }
 
     .preview-remove:hover { background: rgba(0,0,0,.75); }
     .preview-remove svg { width: 14px; height: 14px; stroke: #fff; fill: none; }
 
-    .field-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--slate-700);
-      margin-bottom: 7px;
-      display: block;
-    }
+    .field-label { font-size: 13px; font-weight: 500; color: var(--slate-700); margin-bottom: 7px; display: block; }
 
     select {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      color: var(--slate-900);
-      background: #fff;
-      cursor: pointer;
-      appearance: none;
+      width: 100%; padding: 10px 36px 10px 14px;
+      border: 1px solid var(--slate-200); border-radius: var(--r-sm);
+      font-size: 14px; font-family: 'Inter', sans-serif;
+      color: var(--slate-900); background: #fff;
+      cursor: pointer; appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 12px center;
-      transition: border-color var(--transition), box-shadow var(--transition);
+      transition: border-color var(--t), box-shadow var(--t);
     }
 
     select:focus {
@@ -308,20 +199,21 @@
       box-shadow: 0 0 0 3px rgba(37,99,235,.12);
     }
 
+    #state-wrapper { display: none; margin-top: 12px; }
+
+    .location-note {
+      font-size: 12px; color: var(--slate-400);
+      margin-top: 8px;
+    }
+
     .btn-analyze {
-      width: 100%;
-      padding: 13px 24px;
-      background: var(--blue-600);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
+      width: 100%; padding: 13px 24px;
+      background: var(--blue-600); color: #fff;
+      font-size: 15px; font-weight: 600;
       font-family: 'Inter', sans-serif;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: all var(--transition);
-      letter-spacing: -0.2px;
-      margin-top: 16px;
+      border: none; border-radius: var(--r);
+      cursor: pointer; transition: all var(--t);
+      letter-spacing: -0.2px; margin-top: 16px;
     }
 
     .btn-analyze:hover:not(:disabled) {
@@ -330,23 +222,13 @@
       box-shadow: 0 4px 12px rgba(37,99,235,.3);
     }
 
-    .btn-analyze:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none;
-    }
+    .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-    .loading-state {
-      display: none;
-      text-align: center;
-      padding: 36px 24px;
-    }
-
+    .loading-state { display: none; text-align: center; padding: 36px 24px; }
     .loading-state.visible { display: block; }
 
     .spinner {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border: 3px solid var(--blue-100);
       border-top-color: var(--blue-600);
       border-radius: 50%;
@@ -356,27 +238,14 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .loading-step {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--slate-700);
-      margin-bottom: 4px;
-    }
-
-    .loading-sub {
-      font-size: 13px;
-      color: var(--slate-400);
-    }
+    .loading-step { font-size: 14px; font-weight: 500; color: var(--slate-700); margin-bottom: 4px; }
+    .loading-sub  { font-size: 13px; color: var(--slate-400); }
 
     .error-box {
       display: none;
-      background: #fff5f5;
-      border: 1px solid #fecaca;
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 13px;
-      color: #b91c1c;
-      margin-top: 12px;
+      background: #fff5f5; border: 1px solid #fecaca;
+      border-radius: var(--r); padding: 14px 16px;
+      font-size: 13px; color: #b91c1c; margin-top: 12px;
     }
 
     .error-box.visible { display: block; }
@@ -385,41 +254,23 @@
     #results-section.visible { display: block; }
 
     .result-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .result-material {
-      flex: 1;
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 20px; flex-wrap: wrap;
     }
 
     .result-material-name {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--slate-900);
-      letter-spacing: -0.4px;
+      font-size: 22px; font-weight: 700;
+      color: var(--slate-900); letter-spacing: -0.4px;
       text-transform: capitalize;
     }
 
-    .result-item-name {
-      font-size: 14px;
-      color: var(--slate-500);
-      margin-top: 2px;
-      text-transform: capitalize;
-    }
+    .result-item-name { font-size: 14px; color: var(--slate-500); margin-top: 2px; text-transform: capitalize; }
 
     .confidence-badge {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
     }
 
     .confidence-high   { background: var(--green-100); color: var(--green-600); }
@@ -427,305 +278,127 @@
     .confidence-low    { background: var(--red-100);   color: var(--red-600);   }
 
     .description-text {
-      font-size: 13px;
-      color: var(--slate-500);
-      margin-bottom: 20px;
-      padding: 12px 14px;
-      background: var(--slate-50);
-      border-radius: var(--radius-sm);
+      font-size: 13px; color: var(--slate-500);
+      margin-bottom: 20px; padding: 12px 14px;
+      background: var(--slate-50); border-radius: var(--r-sm);
       border-left: 3px solid var(--blue-200);
     }
 
     .bin-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px;
-      background: var(--slate-50);
-      border-radius: var(--radius);
-      border: 1px solid var(--slate-200);
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px; background: var(--slate-50);
+      border-radius: var(--r); border: 1px solid var(--slate-200);
       margin-bottom: 20px;
     }
 
-    .bin-swatch {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      border: 2px solid rgba(0,0,0,.08);
-    }
-
-    .bin-details {}
-    .bin-label { font-size: 15px; font-weight: 600; color: var(--slate-900); }
+    .bin-swatch { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; border: 2px solid rgba(0,0,0,.08); }
+    .bin-label  { font-size: 15px; font-weight: 600; color: var(--slate-900); }
     .bin-method { font-size: 13px; color: var(--slate-500); margin-top: 2px; }
 
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--slate-400);
-      margin-bottom: 10px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--slate-400); margin-bottom: 10px;
     }
 
-    .prep-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
+    .prep-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
 
-    .prep-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      color: var(--slate-700);
-    }
+    .prep-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--slate-700); }
 
     .prep-num {
-      width: 20px;
-      height: 20px;
-      background: var(--blue-600);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 11px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+      width: 20px; height: 20px;
+      background: var(--blue-600); color: #fff;
+      border-radius: 50%; font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
     }
 
     .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px; margin-bottom: 20px;
     }
 
     .impact-card {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius);
-      padding: 14px;
+      background: var(--slate-50); border: 1px solid var(--slate-200);
+      border-radius: var(--r); padding: 14px;
     }
 
-    .impact-card-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--slate-400);
-      margin-bottom: 6px;
-    }
+    .impact-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--slate-400); margin-bottom: 6px; }
+    .impact-card-value { font-size: 18px; font-weight: 700; color: var(--slate-900); letter-spacing: -0.4px; line-height: 1.2; }
+    .impact-card-unit  { font-size: 11px; color: var(--slate-500); margin-top: 2px; }
 
-    .impact-card-value {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--slate-900);
-      letter-spacing: -0.4px;
-      line-height: 1.2;
-    }
-
-    .impact-card-unit {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--slate-500);
-      margin-top: 2px;
-    }
-
-    .risk-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-bottom: 20px;
-    }
+    .risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px; }
 
     .risk-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 12px;
-      background: var(--slate-50);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--slate-200);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px; background: var(--slate-50);
+      border-radius: var(--r-sm); border: 1px solid var(--slate-200);
     }
 
-    .risk-name { font-size: 12px; font-weight: 500; color: var(--slate-600); }
+    .risk-name  { font-size: 12px; font-weight: 500; color: var(--slate-600); }
 
-    .risk-badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 20px;
-    }
-
-    .risk-none      { background: var(--gray-100); color: var(--gray-500); }
-    .risk-low       { background: var(--green-100); color: var(--green-600); }
-    .risk-medium    { background: var(--amber-100); color: var(--amber-600); }
+    .risk-badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
+    .risk-none      { background: var(--gray-100);   color: var(--gray-500);   }
+    .risk-low       { background: var(--green-100);  color: var(--green-600);  }
+    .risk-medium    { background: var(--amber-100);  color: var(--amber-600);  }
     .risk-high      { background: var(--orange-100); color: var(--orange-600); }
-    .risk-very-high { background: var(--red-100); color: var(--red-600); }
+    .risk-very-high { background: var(--red-100);    color: var(--red-600);    }
 
-    .energy-bar-wrap {
-      margin-bottom: 20px;
-    }
-
-    .energy-bar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
+    .energy-bar-wrap { margin-bottom: 20px; }
+    .energy-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
     .energy-bar-label { font-size: 12px; font-weight: 500; color: var(--slate-600); }
     .energy-bar-pct   { font-size: 14px; font-weight: 700; color: var(--green-600); }
+    .energy-bar-track { height: 8px; background: var(--slate-200); border-radius: 99px; overflow: hidden; }
+    .energy-bar-fill  { height: 100%; background: var(--green-600); border-radius: 99px; transition: width 0.6s cubic-bezier(.4,0,.2,1); }
 
-    .energy-bar-track {
-      height: 8px;
-      background: var(--slate-200);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .energy-bar-fill {
-      height: 100%;
-      background: var(--green-600);
-      border-radius: 99px;
-      transition: width 0.6s cubic-bezier(.4,0,.2,1);
-    }
-
-    .benefit-text {
-      font-size: 13px;
-      color: var(--slate-600);
-      padding: 12px 14px;
-      background: var(--green-100);
-      border-radius: var(--radius-sm);
-      border-left: 3px solid var(--green-600);
-      margin-bottom: 20px;
-    }
-
-    .local-tip-text {
-      font-size: 13px;
-      color: var(--blue-700);
-      padding: 12px 14px;
-      background: var(--blue-50);
-      border-radius: var(--radius-sm);
-      border-left: 3px solid var(--blue-500);
-      margin-bottom: 16px;
-    }
+    .benefit-text  { font-size: 13px; color: var(--slate-600); padding: 12px 14px; background: var(--green-100); border-radius: var(--r-sm); border-left: 3px solid var(--green-600); margin-bottom: 20px; }
+    .local-tip-text { font-size: 13px; color: var(--blue-700); padding: 12px 14px; background: var(--blue-50); border-radius: var(--r-sm); border-left: 3px solid var(--blue-500); margin-bottom: 16px; }
 
     .btn-copy {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 500;
       font-family: 'Inter', sans-serif;
-      color: var(--slate-600);
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      padding: 8px 14px;
-      cursor: pointer;
-      transition: all var(--transition);
+      color: var(--slate-600); background: #fff;
+      border: 1px solid var(--slate-200); border-radius: var(--r-sm);
+      padding: 8px 14px; cursor: pointer; transition: all var(--t);
     }
 
-    .btn-copy:hover {
-      background: var(--slate-50);
-      border-color: var(--slate-300);
-      color: var(--slate-900);
-    }
-
-    .btn-copy svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
-
-    .btn-copy.copied {
-      color: var(--green-600);
-      border-color: var(--green-600);
-      background: var(--green-100);
-    }
+    .btn-copy:hover { background: var(--slate-50); border-color: var(--slate-300); color: var(--slate-900); }
+    .btn-copy svg   { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+    .btn-copy.copied { color: var(--green-600); border-color: var(--green-600); background: var(--green-100); }
 
     #history-section { display: none; margin-top: 16px; }
     #history-section.visible { display: block; }
 
     .history-scroll {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--slate-200) transparent;
+      display: flex; gap: 10px;
+      overflow-x: auto; padding-bottom: 4px;
+      scrollbar-width: thin; scrollbar-color: var(--slate-200) transparent;
     }
 
     .history-scroll::-webkit-scrollbar { height: 4px; }
     .history-scroll::-webkit-scrollbar-thumb { background: var(--slate-200); border-radius: 2px; }
 
     .history-item {
-      flex-shrink: 0;
-      width: 90px;
-      cursor: pointer;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--slate-200);
-      overflow: hidden;
-      transition: all var(--transition);
-      background: var(--slate-50);
+      flex-shrink: 0; width: 90px; cursor: pointer;
+      border-radius: var(--r-sm); border: 1px solid var(--slate-200);
+      overflow: hidden; transition: all var(--t); background: var(--slate-50);
     }
 
-    .history-item:hover {
-      border-color: var(--blue-400);
-      box-shadow: 0 0 0 2px var(--blue-100);
-      transform: translateY(-1px);
-    }
+    .history-item:hover { border-color: var(--blue-400); box-shadow: 0 0 0 2px var(--blue-100); transform: translateY(-1px); }
 
-    .history-thumb {
-      width: 100%;
-      height: 66px;
-      object-fit: cover;
-      display: block;
-      background: var(--slate-200);
-    }
+    .history-thumb { width: 100%; height: 66px; object-fit: cover; display: block; background: var(--slate-200); }
+    .history-meta  { padding: 6px 7px; }
+    .history-material { font-size: 10px; font-weight: 600; color: var(--slate-700); text-transform: capitalize; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .history-loc      { font-size: 9px; color: var(--slate-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    .history-meta {
-      padding: 6px 7px;
-    }
-
-    .history-material {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--slate-700);
-      text-transform: capitalize;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .history-city {
-      font-size: 9px;
-      color: var(--slate-400);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .history-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
+    .history-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 
     .btn-clear-history {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--slate-400);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      padding: 2px 0;
-      transition: color var(--transition);
+      font-size: 12px; font-weight: 500;
+      color: var(--slate-400); background: none; border: none;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: color var(--t);
     }
 
     .btn-clear-history:hover { color: var(--red-600); }
@@ -754,19 +427,18 @@
 <main>
   <div class="hero">
     <h1>Classify any waste instantly</h1>
-    <p>Upload a photo and get city-specific disposal instructions with environmental impact data.</p>
+    <p>Upload a photo and get location-specific disposal instructions with environmental impact data.</p>
   </div>
 
   <div class="card">
     <div class="card-title">Step 1 — Upload waste photo</div>
-
     <div class="upload-area" id="upload-area">
       <input type="file" id="file-input" accept="image/*" />
       <div class="upload-icon">
         <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 16l4-4 4 4 4-8 4 4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
       </div>
       <div class="upload-text">Drop a photo here</div>
-      <div class="upload-subtext">JPEG, PNG, WEBP — up to 20 MB</div>
+      <div class="upload-subtext">JPEG, PNG, WEBP — up to 15 MB</div>
       <div class="upload-actions">
         <label class="btn-camera">
           Use Camera
@@ -774,86 +446,119 @@
         </label>
       </div>
     </div>
-
     <div id="preview-container">
-      <img id="preview-img" src="" alt="Waste photo preview" />
-      <button class="preview-remove" id="remove-preview" title="Remove photo">
+      <img id="preview-img" src="" alt="Preview" />
+      <button class="preview-remove" id="remove-preview">
         <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">Step 2 — Select your city</div>
-    <label class="field-label" for="city-select">Your location determines disposal rules</label>
-    <select id="city-select">
-      <option value="" disabled selected>Select a city...</option>
-      <optgroup label="Turkey">
-        <option>Istanbul</option>
-        <option>Ankara</option>
-        <option>Izmir</option>
-        <option>Bursa</option>
-        <option>Antalya</option>
-        <option>Konya</option>
-        <option>Adana</option>
-        <option>Gaziantep</option>
-        <option>Kocaeli</option>
-        <option>Mersin</option>
-        <option>Diyarbakir</option>
-        <option>Eskisehir</option>
-        <option>Samsun</option>
-        <option>Denizli</option>
-        <option>Trabzon</option>
+    <div class="card-title">Step 2 — Select your location</div>
+
+    <label class="field-label" for="country-select">Country</label>
+    <select id="country-select">
+      <option value="" disabled selected>Select a country...</option>
+
+      <optgroup label="Africa">
+        <option>Algeria</option><option>Angola</option><option>Benin</option>
+        <option>Botswana</option><option>Burkina Faso</option><option>Burundi</option>
+        <option>Cabo Verde</option><option>Cameroon</option><option>Central African Republic</option>
+        <option>Chad</option><option>Comoros</option><option>Congo (Republic)</option>
+        <option>Congo (DR)</option><option>Djibouti</option><option>Egypt</option>
+        <option>Equatorial Guinea</option><option>Eritrea</option><option>Eswatini</option>
+        <option>Ethiopia</option><option>Gabon</option><option>Gambia</option>
+        <option>Ghana</option><option>Guinea</option><option>Guinea-Bissau</option>
+        <option>Ivory Coast</option><option>Kenya</option><option>Lesotho</option>
+        <option>Liberia</option><option>Libya</option><option>Madagascar</option>
+        <option>Malawi</option><option>Mali</option><option>Mauritania</option>
+        <option>Mauritius</option><option>Morocco</option><option>Mozambique</option>
+        <option>Namibia</option><option>Niger</option><option>Nigeria</option>
+        <option>Rwanda</option><option>Sao Tome and Principe</option><option>Senegal</option>
+        <option>Seychelles</option><option>Sierra Leone</option><option>Somalia</option>
+        <option>South Africa</option><option>South Sudan</option><option>Sudan</option>
+        <option>Tanzania</option><option>Togo</option><option>Tunisia</option>
+        <option>Uganda</option><option>Zambia</option><option>Zimbabwe</option>
       </optgroup>
+
+      <optgroup label="North &amp; Central America">
+        <option>Antigua and Barbuda</option><option>Bahamas</option><option>Barbados</option>
+        <option>Belize</option><option>Canada</option><option>Costa Rica</option>
+        <option>Cuba</option><option>Dominica</option><option>Dominican Republic</option>
+        <option>El Salvador</option><option>Grenada</option><option>Guatemala</option>
+        <option>Haiti</option><option>Honduras</option><option>Jamaica</option>
+        <option>Mexico</option><option>Nicaragua</option><option>Panama</option>
+        <option>Saint Kitts and Nevis</option><option>Saint Lucia</option>
+        <option>Saint Vincent and the Grenadines</option><option>Trinidad and Tobago</option>
+        <option>United States</option>
+      </optgroup>
+
+      <optgroup label="South America">
+        <option>Argentina</option><option>Bolivia</option><option>Brazil</option>
+        <option>Chile</option><option>Colombia</option><option>Ecuador</option>
+        <option>Guyana</option><option>Paraguay</option><option>Peru</option>
+        <option>Suriname</option><option>Uruguay</option><option>Venezuela</option>
+      </optgroup>
+
+      <optgroup label="Asia">
+        <option>Afghanistan</option><option>Bangladesh</option><option>Bhutan</option>
+        <option>Brunei</option><option>Cambodia</option><option>China</option>
+        <option>India</option><option>Indonesia</option><option>Japan</option>
+        <option>Kazakhstan</option><option>Kyrgyzstan</option><option>Laos</option>
+        <option>Malaysia</option><option>Maldives</option><option>Mongolia</option>
+        <option>Myanmar</option><option>Nepal</option><option>North Korea</option>
+        <option>Pakistan</option><option>Philippines</option><option>Singapore</option>
+        <option>South Korea</option><option>Sri Lanka</option><option>Taiwan</option>
+        <option>Tajikistan</option><option>Thailand</option><option>Timor-Leste</option>
+        <option>Turkmenistan</option><option>Uzbekistan</option><option>Vietnam</option>
+      </optgroup>
+
       <optgroup label="Europe">
-        <option>London</option>
-        <option>Paris</option>
-        <option>Berlin</option>
-        <option>Madrid</option>
-        <option>Rome</option>
-        <option>Amsterdam</option>
-        <option>Vienna</option>
-        <option>Brussels</option>
-        <option>Stockholm</option>
-        <option>Oslo</option>
-        <option>Copenhagen</option>
-        <option>Warsaw</option>
-        <option>Prague</option>
-        <option>Zurich</option>
-        <option>Barcelona</option>
-        <option>Lisbon</option>
-        <option>Athens</option>
-        <option>Budapest</option>
-        <option>Dublin</option>
-        <option>Helsinki</option>
-        <option>Munich</option>
-        <option>Hamburg</option>
-        <option>Milan</option>
-        <option>Rotterdam</option>
+        <option>Albania</option><option>Andorra</option><option>Armenia</option>
+        <option>Austria</option><option>Azerbaijan</option><option>Belarus</option>
+        <option>Belgium</option><option>Bosnia and Herzegovina</option><option>Bulgaria</option>
+        <option>Croatia</option><option>Cyprus</option><option>Czech Republic</option>
+        <option>Denmark</option><option>Estonia</option><option>Finland</option>
+        <option>France</option><option>Georgia</option><option>Germany</option>
+        <option>Greece</option><option>Hungary</option><option>Iceland</option>
+        <option>Ireland</option><option>Italy</option><option>Kosovo</option>
+        <option>Latvia</option><option>Liechtenstein</option><option>Lithuania</option>
+        <option>Luxembourg</option><option>Malta</option><option>Moldova</option>
+        <option>Monaco</option><option>Montenegro</option><option>Netherlands</option>
+        <option>North Macedonia</option><option>Norway</option><option>Poland</option>
+        <option>Portugal</option><option>Romania</option><option>Russia</option>
+        <option>San Marino</option><option>Serbia</option><option>Slovakia</option>
+        <option>Slovenia</option><option>Spain</option><option>Sweden</option>
+        <option>Switzerland</option><option>Turkey</option><option>Ukraine</option>
+        <option>United Kingdom</option><option>Vatican City</option>
       </optgroup>
-      <optgroup label="United States">
-        <option>New York</option>
-        <option>Los Angeles</option>
-        <option>Chicago</option>
-        <option>Houston</option>
-        <option>Phoenix</option>
-        <option>Philadelphia</option>
-        <option>San Antonio</option>
-        <option>San Diego</option>
-        <option>Dallas</option>
-        <option>San Francisco</option>
-        <option>Seattle</option>
-        <option>Boston</option>
-        <option>Miami</option>
-        <option>Atlanta</option>
-        <option>Denver</option>
-        <option>Washington DC</option>
-        <option>Portland</option>
-        <option>Minneapolis</option>
-        <option>Las Vegas</option>
-        <option>Detroit</option>
+
+      <optgroup label="Middle East">
+        <option>Bahrain</option><option>Iran</option><option>Iraq</option>
+        <option>Israel</option><option>Jordan</option><option>Kuwait</option>
+        <option>Lebanon</option><option>Oman</option><option>Palestine</option>
+        <option>Qatar</option><option>Saudi Arabia</option><option>Syria</option>
+        <option>United Arab Emirates</option><option>Yemen</option>
+      </optgroup>
+
+      <optgroup label="Oceania">
+        <option>Australia</option><option>Fiji</option><option>Kiribati</option>
+        <option>Marshall Islands</option><option>Micronesia</option><option>Nauru</option>
+        <option>New Zealand</option><option>Palau</option><option>Papua New Guinea</option>
+        <option>Samoa</option><option>Solomon Islands</option><option>Tonga</option>
+        <option>Tuvalu</option><option>Vanuatu</option>
       </optgroup>
     </select>
+
+    <div id="state-wrapper">
+      <label class="field-label" for="state-select" id="state-label" style="margin-top:12px;">State / Province</label>
+      <select id="state-select">
+        <option value="" disabled selected>Select...</option>
+      </select>
+    </div>
+
+    <div class="location-note" id="location-note"></div>
 
     <button class="btn-analyze" id="analyze-btn" disabled>Analyze Waste</button>
     <div class="error-box" id="error-box"></div>
@@ -862,14 +567,14 @@
   <div class="card loading-state" id="loading-state">
     <div class="spinner"></div>
     <div class="loading-step" id="loading-step">Analyzing image...</div>
-    <div class="loading-sub" id="loading-sub">Scout 17B is identifying the material</div>
+    <div class="loading-sub"  id="loading-sub">Scout 17B is identifying the material</div>
   </div>
 
   <div class="card" id="results-section">
     <div class="result-header">
-      <div class="result-material">
+      <div>
         <div class="result-material-name" id="result-material"></div>
-        <div class="result-item-name" id="result-item"></div>
+        <div class="result-item-name"     id="result-item"></div>
       </div>
       <span class="confidence-badge" id="confidence-badge"></span>
     </div>
@@ -878,8 +583,8 @@
 
     <div class="bin-info">
       <div class="bin-swatch" id="bin-swatch"></div>
-      <div class="bin-details">
-        <div class="bin-label" id="bin-label"></div>
+      <div>
+        <div class="bin-label"  id="bin-label"></div>
         <div class="bin-method" id="bin-method"></div>
       </div>
     </div>
@@ -915,9 +620,9 @@
     </div>
 
     <div class="section-label">Recycling Benefit</div>
-    <div class="benefit-text" id="benefit-text"></div>
+    <div class="benefit-text"   id="benefit-text"></div>
 
-    <div class="section-label">Local Tip for <span id="city-name-label"></span></div>
+    <div class="section-label">Local Tip — <span id="location-label"></span></div>
     <div class="local-tip-text" id="local-tip"></div>
 
     <button class="btn-copy" id="copy-btn">
@@ -936,7 +641,65 @@
 </main>
 
 <script>
-  const API_URL = 'https://YOUR-RAILWAY-APP.railway.app';
+  const STATES = {
+    'United States': [
+      'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
+      'Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa',
+      'Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan',
+      'Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada',
+      'New Hampshire','New Jersey','New Mexico','New York','North Carolina',
+      'North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island',
+      'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
+      'Virginia','Washington','West Virginia','Wisconsin','Wyoming','Washington DC'
+    ],
+    'Canada': [
+      'Alberta','British Columbia','Manitoba','New Brunswick',
+      'Newfoundland and Labrador','Northwest Territories','Nova Scotia',
+      'Nunavut','Ontario','Prince Edward Island','Quebec','Saskatchewan','Yukon'
+    ],
+    'Australia': [
+      'Australian Capital Territory','New South Wales','Northern Territory',
+      'Queensland','South Australia','Tasmania','Victoria','Western Australia'
+    ],
+    'Brazil': [
+      'Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal',
+      'Espírito Santo','Goiás','Maranhão','Mato Grosso','Mato Grosso do Sul',
+      'Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí',
+      'Rio de Janeiro','Rio Grande do Norte','Rio Grande do Sul','Rondônia',
+      'Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins'
+    ],
+    'India': [
+      'Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa',
+      'Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala',
+      'Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland',
+      'Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura',
+      'Uttar Pradesh','Uttarakhand','West Bengal','Delhi'
+    ],
+    'Mexico': [
+      'Aguascalientes','Baja California','Baja California Sur','Campeche',
+      'Chiapas','Chihuahua','Coahuila','Colima','Durango','Guanajuato',
+      'Guerrero','Hidalgo','Jalisco','Mexico City','Mexico State','Michoacán',
+      'Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro',
+      'Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco',
+      'Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas'
+    ],
+    'Germany': [
+      'Baden-Württemberg','Bavaria','Berlin','Brandenburg','Bremen','Hamburg',
+      'Hesse','Lower Saxony','Mecklenburg-Vorpommern','North Rhine-Westphalia',
+      'Rhineland-Palatinate','Saarland','Saxony','Saxony-Anhalt',
+      'Schleswig-Holstein','Thuringia'
+    ]
+  };
+
+  const LABEL = {
+    'United States': 'State',
+    'Canada':        'Province',
+    'Australia':     'State / Territory',
+    'Brazil':        'State',
+    'India':         'State',
+    'Mexico':        'State',
+    'Germany':       'Federal State'
+  };
 
   const fileInput       = document.getElementById('file-input');
   const cameraInput     = document.getElementById('camera-input');
@@ -944,7 +707,11 @@
   const previewContainer = document.getElementById('preview-container');
   const previewImg      = document.getElementById('preview-img');
   const removePreview   = document.getElementById('remove-preview');
-  const citySelect      = document.getElementById('city-select');
+  const countrySelect   = document.getElementById('country-select');
+  const stateWrapper    = document.getElementById('state-wrapper');
+  const stateSelect     = document.getElementById('state-select');
+  const stateLabel      = document.getElementById('state-label');
+  const locationNote    = document.getElementById('location-note');
   const analyzeBtn      = document.getElementById('analyze-btn');
   const errorBox        = document.getElementById('error-box');
   const loadingState    = document.getElementById('loading-state');
@@ -960,10 +727,7 @@
   let currentResult = null;
 
   function setFile(file) {
-    if (!file || !file.type.startsWith('image/')) {
-      showError('Please select a valid image file.');
-      return;
-    }
+    if (!file || !file.type.startsWith('image/')) { showError('Please select a valid image file.'); return; }
     selectedFile = file;
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -975,7 +739,7 @@
       uploadArea.querySelector('.upload-actions').style.display = 'none';
     };
     reader.readAsDataURL(file);
-    updateAnalyzeBtn();
+    updateBtn();
     hideError();
   }
 
@@ -989,99 +753,112 @@
     uploadArea.querySelector('.upload-actions').style.display = 'flex';
     fileInput.value = '';
     cameraInput.value = '';
-    updateAnalyzeBtn();
+    updateBtn();
   }
 
-  function updateAnalyzeBtn() {
-    analyzeBtn.disabled = !(selectedFile && citySelect.value);
+  function getLocation() {
+    const country = countrySelect.value;
+    if (!country) return '';
+    if (STATES[country] && stateSelect.value) return stateSelect.value + ', ' + country;
+    if (STATES[country] && !stateSelect.value) return '';
+    return country;
   }
 
-  function showError(msg) {
-    errorBox.textContent = msg;
-    errorBox.classList.add('visible');
+  function updateBtn() {
+    analyzeBtn.disabled = !(selectedFile && getLocation());
   }
 
-  function hideError() {
-    errorBox.classList.remove('visible');
-  }
+  function showError(msg) { errorBox.textContent = msg; errorBox.classList.add('visible'); }
+  function hideError()     { errorBox.classList.remove('visible'); }
 
-  fileInput.addEventListener('change', (e) => { if (e.target.files[0]) setFile(e.target.files[0]); });
+  fileInput.addEventListener('change',   (e) => { if (e.target.files[0]) setFile(e.target.files[0]); });
   cameraInput.addEventListener('change', (e) => { if (e.target.files[0]) setFile(e.target.files[0]); });
   removePreview.addEventListener('click', (e) => { e.stopPropagation(); clearFile(); });
-  citySelect.addEventListener('change', updateAnalyzeBtn);
 
   uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
   uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
   uploadArea.addEventListener('drop', (e) => {
     e.preventDefault();
     uploadArea.classList.remove('drag-over');
-    const file = e.dataTransfer.files[0];
-    if (file) setFile(file);
+    if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
   });
+
+  countrySelect.addEventListener('change', () => {
+    const country = countrySelect.value;
+    if (STATES[country]) {
+      stateWrapper.style.display = 'block';
+      stateLabel.textContent = LABEL[country] || 'Region';
+      stateSelect.innerHTML = `<option value="" disabled selected>Select ${LABEL[country] || 'region'}...</option>`;
+      STATES[country].forEach(s => {
+        const o = document.createElement('option');
+        o.value = o.textContent = s;
+        stateSelect.appendChild(o);
+      });
+      stateSelect.value = '';
+      locationNote.textContent = `Recycling rules vary by ${(LABEL[country] || 'region').toLowerCase()} — please select yours for accurate results.`;
+    } else {
+      stateWrapper.style.display = 'none';
+      locationNote.textContent = '';
+    }
+    updateBtn();
+  });
+
+  stateSelect.addEventListener('change', updateBtn);
 
   function riskClass(level) {
     if (!level) return 'risk-none';
     const l = level.toLowerCase().replace(/\s+/g, '-');
-    if (l === 'none') return 'risk-none';
-    if (l === 'low') return 'risk-low';
-    if (l === 'medium') return 'risk-medium';
-    if (l === 'high') return 'risk-high';
-    if (l === 'very-high') return 'risk-very-high';
-    return 'risk-none';
+    const map = { none: 'risk-none', low: 'risk-low', medium: 'risk-medium', high: 'risk-high', 'very-high': 'risk-very-high' };
+    return map[l] || 'risk-none';
   }
 
   function binColorCSS(color) {
     const map = {
       blue: '#2563eb', green: '#16a34a', yellow: '#ca8a04', red: '#dc2626',
       black: '#1a1a1a', grey: '#6b7280', gray: '#6b7280', orange: '#ea580c',
-      brown: '#92400e', purple: '#7c3aed', white: '#e5e7eb'
+      brown: '#92400e', purple: '#7c3aed', white: '#d1d5db'
     };
     return map[(color || '').toLowerCase()] || '#6b7280';
   }
 
   function renderResults(data) {
     document.getElementById('result-material').textContent = data.material || 'Unknown';
-    document.getElementById('result-item').textContent = data.item || '';
+    document.getElementById('result-item').textContent     = data.item || '';
 
-    const confBadge = document.getElementById('confidence-badge');
     const conf = (data.confidence || 'low').toLowerCase();
-    confBadge.textContent = conf.charAt(0).toUpperCase() + conf.slice(1) + ' confidence';
-    confBadge.className = 'confidence-badge confidence-' + conf;
+    const badge = document.getElementById('confidence-badge');
+    badge.textContent = conf.charAt(0).toUpperCase() + conf.slice(1) + ' confidence';
+    badge.className   = 'confidence-badge confidence-' + conf;
 
     document.getElementById('result-description').textContent = data.description || '';
 
-    const swatch = document.getElementById('bin-swatch');
-    swatch.style.background = binColorCSS(data.bin_color);
-
-    document.getElementById('bin-label').textContent = data.bin_label || data.bin_color + ' bin';
+    document.getElementById('bin-swatch').style.background = binColorCSS(data.bin_color);
+    document.getElementById('bin-label').textContent  = data.bin_label || data.bin_color + ' bin';
     document.getElementById('bin-method').textContent = data.disposal_method || '';
 
     const prepList = document.getElementById('prep-list');
     prepList.innerHTML = '';
-    const steps = Array.isArray(data.preparation) ? data.preparation : [];
-    steps.forEach((step, i) => {
+    (Array.isArray(data.preparation) ? data.preparation : []).forEach((step, i) => {
       const li = document.createElement('li');
       li.innerHTML = `<span class="prep-num">${i + 1}</span><span>${step}</span>`;
       prepList.appendChild(li);
     });
 
     document.getElementById('stat-decompose').textContent = data.years_to_decompose || '—';
-    document.getElementById('stat-co2').textContent = typeof data.co2_emissions_kg === 'number'
-      ? data.co2_emissions_kg.toFixed(2) : (data.co2_emissions_kg || '—');
+    document.getElementById('stat-co2').textContent =
+      typeof data.co2_emissions_kg === 'number' ? data.co2_emissions_kg.toFixed(2) : (data.co2_emissions_kg || '—');
 
     const riskGrid = document.getElementById('risk-grid');
     riskGrid.innerHTML = '';
-    const risks = [
+    [
       { label: 'Ocean Risk',       value: data.ocean_risk },
       { label: 'Soil Risk',        value: data.soil_risk },
       { label: 'Wildlife Risk',    value: data.wildlife_risk },
       { label: 'Microplastic Risk', value: data.microplastic_risk },
-    ];
-    risks.forEach(({ label, value }) => {
+    ].forEach(({ label, value }) => {
       const div = document.createElement('div');
       div.className = 'risk-row';
-      div.innerHTML = `<span class="risk-name">${label}</span>
-        <span class="risk-badge ${riskClass(value)}">${value || 'N/A'}</span>`;
+      div.innerHTML = `<span class="risk-name">${label}</span><span class="risk-badge ${riskClass(value)}">${value || 'N/A'}</span>`;
       riskGrid.appendChild(div);
     });
 
@@ -1089,29 +866,29 @@
     document.getElementById('energy-pct').textContent = pct + '%';
     setTimeout(() => { document.getElementById('energy-bar').style.width = pct + '%'; }, 50);
 
-    document.getElementById('benefit-text').textContent = data.recycling_benefit || '';
-    document.getElementById('city-name-label').textContent = data.city || citySelect.value;
-    document.getElementById('local-tip').textContent = data.local_tip || '';
+    document.getElementById('benefit-text').textContent  = data.recycling_benefit || '';
+    document.getElementById('location-label').textContent = data.location || '';
+    document.getElementById('local-tip').textContent      = data.local_tip || '';
 
     resultsSection.classList.add('visible');
     resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function buildCopyText(data) {
+  function buildCopyText(d) {
     return [
-      `TrashVision Analysis`,
-      `Item: ${data.item || data.material} (${data.material})`,
-      `City: ${data.city}`,
-      `Disposal: ${data.disposal_method}`,
-      `Bin: ${data.bin_label}`,
-      `Decompose: ${data.years_to_decompose} years`,
-      `CO2: ${data.co2_emissions_kg} kg`,
-      `Ocean Risk: ${data.ocean_risk}`,
-      `Soil Risk: ${data.soil_risk}`,
-      `Wildlife Risk: ${data.wildlife_risk}`,
-      `Microplastic Risk: ${data.microplastic_risk}`,
-      `Energy Saved by Recycling: ${data.energy_saved_percent}%`,
-      `Tip: ${data.local_tip}`,
+      'TrashVision Analysis',
+      `Item: ${d.item || d.material} (${d.material})`,
+      `Location: ${d.location}`,
+      `Disposal: ${d.disposal_method}`,
+      `Bin: ${d.bin_label}`,
+      `Decompose: ${d.years_to_decompose} years`,
+      `CO2: ${d.co2_emissions_kg} kg`,
+      `Ocean Risk: ${d.ocean_risk}`,
+      `Soil Risk: ${d.soil_risk}`,
+      `Wildlife Risk: ${d.wildlife_risk}`,
+      `Microplastic Risk: ${d.microplastic_risk}`,
+      `Energy Saved by Recycling: ${d.energy_saved_percent}%`,
+      `Tip: ${d.local_tip}`,
     ].join('\n');
   }
 
@@ -1125,69 +902,47 @@
         copyBtn.innerHTML = `<svg viewBox="0 0 24 24" stroke-width="1.8" style="width:14px;height:14px;stroke:currentColor;fill:none"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Result`;
         copyBtn.classList.remove('copied');
       }, 2000);
-    } catch {
-      showError('Clipboard not available. Please copy manually.');
-    }
+    } catch { showError('Clipboard unavailable. Please copy manually.'); }
   });
 
   function loadHistory() {
-    try {
-      return JSON.parse(localStorage.getItem('trashvision_history') || '[]');
-    } catch { return []; }
+    try { return JSON.parse(localStorage.getItem('trashvision_history') || '[]'); } catch { return []; }
   }
 
-  function saveHistory(history) {
-    localStorage.setItem('trashvision_history', JSON.stringify(history));
-  }
+  function saveHistory(h) { localStorage.setItem('trashvision_history', JSON.stringify(h)); }
 
   function addToHistory(result, thumbnail) {
-    const history = loadHistory();
-    history.unshift({
-      id: Date.now(),
-      timestamp: new Date().toISOString(),
-      material: result.material,
-      item: result.item,
-      city: result.city,
-      thumbnail: thumbnail,
-      result: result,
-    });
-    saveHistory(history.slice(0, 10));
+    const h = loadHistory();
+    h.unshift({ id: Date.now(), location: result.location, material: result.material, item: result.item, thumbnail, result });
+    saveHistory(h.slice(0, 10));
     renderHistory();
   }
 
   function renderHistory() {
-    const history = loadHistory();
-    if (history.length === 0) {
-      historySection.classList.remove('visible');
-      return;
-    }
+    const h = loadHistory();
+    if (!h.length) { historySection.classList.remove('visible'); return; }
     historySection.classList.add('visible');
     historyScroll.innerHTML = '';
-    history.forEach((entry) => {
+    h.forEach(entry => {
       const div = document.createElement('div');
       div.className = 'history-item';
-      div.title = `${entry.item || entry.material} — ${entry.city}`;
+      div.title = `${entry.item || entry.material} — ${entry.location}`;
       div.innerHTML = `
         <img class="history-thumb" src="${entry.thumbnail}" alt="${entry.material}" />
         <div class="history-meta">
           <div class="history-material">${entry.item || entry.material}</div>
-          <div class="history-city">${entry.city}</div>
+          <div class="history-loc">${entry.location}</div>
         </div>`;
-      div.addEventListener('click', () => {
-        currentResult = entry.result;
-        renderResults(entry.result);
-      });
+      div.addEventListener('click', () => { currentResult = entry.result; renderResults(entry.result); });
       historyScroll.appendChild(div);
     });
   }
 
-  clearHistoryBtn.addEventListener('click', () => {
-    localStorage.removeItem('trashvision_history');
-    renderHistory();
-  });
+  clearHistoryBtn.addEventListener('click', () => { localStorage.removeItem('trashvision_history'); renderHistory(); });
 
   analyzeBtn.addEventListener('click', async () => {
-    if (!selectedFile || !citySelect.value) return;
+    const loc = getLocation();
+    if (!selectedFile || !loc) return;
 
     hideError();
     resultsSection.classList.remove('visible');
@@ -1195,45 +950,42 @@
     analyzeBtn.disabled = true;
 
     loadingStep.textContent = 'Analyzing image...';
-    loadingSub.textContent = 'Scout 17B is identifying the material';
+    loadingSub.textContent  = 'Scout 17B is identifying the material';
 
     const stepTimer = setTimeout(() => {
       loadingStep.textContent = 'Generating disposal instructions...';
-      loadingSub.textContent = 'Llama 3.3 70B is looking up rules for ' + citySelect.value;
-    }, 3000);
+      loadingSub.textContent  = 'Llama 3.3 70B is looking up rules for ' + loc;
+    }, 3500);
 
-    const thumbnailDataUrl = previewImg.src;
+    const thumbnail = previewImg.src;
 
     try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      formData.append('city', citySelect.value);
+      const fd = new FormData();
+      fd.append('image',    selectedFile);
+      fd.append('location', loc);
 
-      const response = await fetch(`${API_URL}/analyze`, {
-        method: 'POST',
-        body: formData,
-      });
+      const res = await fetch('/api/analyze', { method: 'POST', body: fd });
 
       clearTimeout(stepTimer);
 
-      if (!response.ok) {
-        const err = await response.json().catch(() => ({}));
-        throw new Error(err.detail || `Server error ${response.status}`);
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.detail || `Server error ${res.status}`);
       }
 
-      const data = await response.json();
+      const data = await res.json();
       currentResult = data;
 
       loadingState.classList.remove('visible');
       renderResults(data);
-      addToHistory(data, thumbnailDataUrl);
+      addToHistory(data, thumbnail);
     } catch (err) {
       clearTimeout(stepTimer);
       loadingState.classList.remove('visible');
       showError(err.message || 'Something went wrong. Please try again.');
     } finally {
       analyzeBtn.disabled = false;
-      updateAnalyzeBtn();
+      updateBtn();
     }
   });
 
