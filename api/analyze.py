@@ -3,11 +3,15 @@ import base64
 import json
 import re
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
-from groq import Groq
+from groq import Groq, APIStatusError, APIConnectionError
 
 app = FastAPI()
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+_groq_api_key = os.environ.get("GROQ_API_KEY")
+if not _groq_api_key:
+    raise RuntimeError("GROQ_API_KEY environment variable is not set")
+
+client = Groq(api_key=_groq_api_key)
 
 
 def extract_json(text: str) -> dict:
@@ -53,19 +57,28 @@ async def analyze(image: UploadFile = File(...), location: str = Form(...)):
         "description (one sentence about what you see)."
     )
 
-    scout_resp = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {"type": "image_url", "image_url": {"url": f"data:{media_type};base64,{b64}"}},
-                    {"type": "text", "text": scout_prompt},
-                ],
-            }
-        ],
-        max_tokens=400,
-    )
+    try:
+        scout_resp = client.chat.completions.create(
+            # Fixed: Groq uses this ID, not "meta-llama/llama-4-scout-17b-16e-instruct"
+            model="llama-4-scout-17b-16e-instruct",
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "image_url", "image_url": {"url": f"data:{media_type};base64,{b64}"}},
+                        {"type": "text", "text": scout_prompt},
+                    ],
+                }
+            ],
+            max_tokens=400,
+        )
+    except APIStatusError as e:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Image classification failed: {e.status_code} {e.message}",
+        )
+    except APIConnectionError as e:
+        raise HTTPException(status_code=502, detail=f"Could not reach Groq API: {e}")
 
     classification = extract_json(scout_resp.choices[0].message.content)
     if not classification:
@@ -93,11 +106,19 @@ Return one valid JSON object — no markdown, no code fences — with these exac
 - local_tip: string, one specific actionable tip for residents of {location}
 """
 
-    llama_resp = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[{"role": "user", "content": disposal_prompt}],
-        max_tokens=900,
-    )
+    try:
+        llama_resp = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": disposal_prompt}],
+            max_tokens=900,
+        )
+    except APIStatusError as e:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Disposal data generation failed: {e.status_code} {e.message}",
+        )
+    except APIConnectionError as e:
+        raise HTTPException(status_code=502, detail=f"Could not reach Groq API: {e}")
 
     impact = extract_json(llama_resp.choices[0].message.content)
     if not impact:
