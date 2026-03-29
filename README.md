@@ -4,7 +4,7 @@ AI-powered waste identification and localized disposal guidance.
 
 Upload a photo of any waste item, enter your location, and get instant guidance on how to dispose of it correctly, including bin type, preparation steps, environmental impact, and a local tip.
 
-**Live at:** [[[your-url-here](https://trash-vision.vercel.app/)]](https://trash-vision.vercel.app/)
+**Live at:** https://trash-vision.vercel.app
 
 ## Features
 
